@@ -1,34 +1,13 @@
-import axios from "axios";
-import { useQuery } from "react-query";
+import { fetchSuperHero } from "../../api-hooks/superHero.js";
 
 const RQSuperHeroes = () => {
   // sideEffects based on api call success or failed
   const onSuccess = () => {};
   const onError = () => {};
 
-  const { isLoading, data, isError, error, refetch } = useQuery(
-    "super-heroes",
-    () => {
-      return axios.get("http://localhost:4000/superheroes");
-    },
-    {
-      // // set cache timer
-      // cacheTime: 5000,
-      // staleTime: 30000,
-      // refetchOnMount : true
-      // refetchOnWindowFocus: true,
-      // refetchInterval : 2000,
-      // // api call with btn
-      // enabled: false,
-      // // set api callback for times of success or failed
-      // onSuccess,
-      // onError,
-      // // filter for just name of data
-      // select: (data) => {
-      //   const superHeroName = data.data.map((hero) => hero.name);
-      //   return superHeroName;
-      // },
-    }
+  const { isLoading, data, isError, error, refetch } = fetchSuperHero(
+    onSuccess,
+    onError
   );
 
   if (isLoading) {
