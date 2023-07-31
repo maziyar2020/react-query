@@ -12,6 +12,7 @@ import SuperHeroes from "../pages/superhero/SuperHeroes";
 import { RQSuperHeroes } from "../pages/superhero/RQSuperHeroes";
 import RQSuperHero from "../pages/superhero/RQSuperHero";
 import { SuperHeroWrap } from "../pages/superhero/SuperHeroWrap";
+import { Paralel } from "../pages/paralel/Paralel";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
         <Route index element={<RQSuperHeroes />} />
         <Route path=":id" element={<RQSuperHero />} />
       </Route>
+      <Route path="paralel" element={<Paralel />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
   )
