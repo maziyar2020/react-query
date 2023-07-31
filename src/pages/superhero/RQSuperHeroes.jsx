@@ -1,10 +1,9 @@
 import { fetchSuperHero } from "../../api-hooks/superHero.js";
+import { NavLink } from "react-router-dom";
 
-const RQSuperHeroes = () => {
-  // sideEffects based on api call success or failed
+export const RQSuperHeroes = () => {
   const onSuccess = () => {};
   const onError = () => {};
-
   const { isLoading, data, isError, error, refetch } = fetchSuperHero(
     onSuccess,
     onError
@@ -21,20 +20,16 @@ const RQSuperHeroes = () => {
   return (
     <>
       <div>
-        {/* //  when you wanna set api call based on click on btn  \\ */}
-        {/* <button onClick={refetch}>click me</button> */}
-
-        {/* // when you wanna set filter based on data specific key \\ */}
-        {/* {data.map((item, index) => {
-          return <h2 key={index}>{item}</h2>;
-        })} */}
-
+        <h2>React query superHero page</h2>
+        {/* <button onClick={refetch}>Click me</button> */}
         {data?.data.map((item, index) => {
-          return <h2 key={index}>{item.name}</h2>;
+          return (
+            <div key={index}>
+              <NavLink to={`/rq-superhero/${item.id}`}>{item.name}</NavLink>
+            </div>
+          );
         })}
       </div>
     </>
   );
 };
-
-export default RQSuperHeroes;

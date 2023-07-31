@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 // router
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // style
 import "./dashboard.css";
 
@@ -9,23 +9,22 @@ const Dashboard = () => {
   return (
     <div>
       <header className="nav">
-        <Link to="/" className="logo">
+        <NavLink to="/" className="logo">
           Logo
-        </Link>
+        </NavLink>
         <ul className="nav-list">
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/superheroes">Superheroes</Link>
+            <NavLink to="/superheroes">Superheroes</NavLink>
           </li>
           <li>
-            <Link to="/rq-superhero">RQ superHeroes</Link>
+            <NavLink to="/rq-superhero">RQ superHeroes</NavLink>
           </li>
         </ul>
       </header>
       <Outlet />
-      <header className="3"></header>
     </div>
   );
 };
