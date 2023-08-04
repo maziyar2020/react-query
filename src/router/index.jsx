@@ -13,6 +13,7 @@ import { RQSuperHeroes } from "../pages/superhero/RQSuperHeroes";
 import RQSuperHero from "../pages/superhero/RQSuperHero";
 import { SuperHeroWrap } from "../pages/superhero/SuperHeroWrap";
 import { Paralel } from "../pages/paralel/Paralel";
+import { Depnd } from "../pages/dependency/Depnd";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,10 @@ const router = createBrowserRouter(
         <Route path=":id" element={<RQSuperHero />} />
       </Route>
       <Route path="paralel" element={<Paralel />} />
+      <Route
+        path="rq-dependent"
+        element={<Depnd email={"mazi@example.com"} />}
+      />
       <Route path="*" element={<ErrorPage />} />
     </Route>
   )

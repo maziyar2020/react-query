@@ -6,7 +6,6 @@ const RQsuperHero = () => {
   const { id } = useParams();
   const { isError, isLoading, data, error } = fetchSingleSuperHero(id);
 
-  console.log(data);
   if (isLoading) {
     return <h2>Page is loading...</h2>;
   }

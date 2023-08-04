@@ -27,5 +27,13 @@
             "id": 3,
             "name": "abol"
         }
-    ]
+    ],
+    "users": [{
+        "id": "mazi@example.com",
+        "chanellId": "maziCoding"
+    }],
+    "chanells": [{
+        "id": "maziCoding",
+        "courses": ["1", "2", "3"]
+    }]
 }
