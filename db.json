@@ -35,5 +35,47 @@
     "chanells": [{
         "id": "maziCoding",
         "courses": ["1", "2", "3"]
-    }]
+    }],
+    "colors": [
+        {
+            "id": 1,
+            "label" : "Blue"
+        },
+        {
+            "id": 2,
+            "label" : "Red"
+        },
+        {
+            "id": 3,
+            "label" : "Purple"
+        },
+        {
+            "id": 4,
+            "label" : "Orange"
+        },
+        {
+            "id": 5,
+            "label" : "Gray"
+        },
+        {
+            "id": 6,
+            "label" : "Yellow"
+        },
+        {
+            "id": 7,
+            "label" : "Pink"
+        },
+        {
+            "id": 8,
+            "label" : "White"
+        },
+        {
+            "id": 9,
+            "label" : "Black"
+        },
+        {
+            "id": 10,
+            "label" : "Green"
+        }
+    ]
 }

@@ -14,6 +14,7 @@ import RQSuperHero from "../pages/superhero/RQSuperHero";
 import { SuperHeroWrap } from "../pages/superhero/SuperHeroWrap";
 import { Paralel } from "../pages/paralel/Paralel";
 import { Depnd } from "../pages/dependency/Depnd";
+import Pagination from "../pages/pagination/Pagination";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
         path="rq-dependent"
         element={<Depnd email={"mazi@example.com"} />}
       />
+      <Route path="/pagination" element={<Pagination />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
   )
