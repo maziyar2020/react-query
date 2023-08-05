@@ -46,8 +46,15 @@ const addSuperHero = (hero) => {
 export const addSuperHeroData = () => {
     const query = useQueryClient()
     return useMutation(addSuperHero, {
-        onSuccess: () => {
-            query.invalidateQueries('super-heroes')
+        onSuccess: (data) => {
+            // this way we gonna get 1 additional fetching request
+            // query.invalidateQueries('super-heroes')
+
+            // but with setQueries no fetching required
+            // and new data will add to dom in moment
+            query.setQueryData('super-heroes', (oldQuery) =>
+                ({ ...oldQuery, data: [...oldQuery.data, data.data] })
+            )
         }
     })
 }
