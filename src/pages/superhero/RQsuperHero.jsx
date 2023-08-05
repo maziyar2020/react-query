@@ -13,8 +13,7 @@ const RQsuperHero = () => {
   if (isError) {
     return <h2>error equired.{error.message}</h2>;
   }
-
-  return <div>{id}</div>;
+  return <div>{data?.data.name}</div>;
 };
 
 export default RQsuperHero;

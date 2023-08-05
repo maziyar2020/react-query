@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useQuery, useQueryClient } from 'react-query'
+import { useQuery, useQueryClient, useMutation } from 'react-query'
 
 //1  fetch all of superheroes data 1
 export const fetchSuperHero = (onSuccess, onError) => {
@@ -35,4 +35,19 @@ export const fetchSingleSuperHero = (id) => {
         }
     })
 
+}
+
+////////
+
+const addSuperHero = (hero) => {
+    return axios.post('http://localhost:4000/superheroes', hero)
+}
+
+export const addSuperHeroData = () => {
+    const query = useQueryClient()
+    return useMutation(addSuperHero, {
+        onSuccess: () => {
+            query.invalidateQueries('super-heroes')
+        }
+    })
 }
