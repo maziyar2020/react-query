@@ -15,6 +15,7 @@ import { SuperHeroWrap } from "../pages/superhero/SuperHeroWrap";
 import { Paralel } from "../pages/paralel/Paralel";
 import { Depnd } from "../pages/dependency/Depnd";
 import Pagination from "../pages/pagination/Pagination";
+import InfinitQuery from "../pages/infinite/InfinitQuery";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
         element={<Depnd email={"mazi@example.com"} />}
       />
       <Route path="/pagination" element={<Pagination />} />
+      <Route path="/infinite" element={<InfinitQuery />} />
       <Route path="*" element={<ErrorPage />} />
     </Route>
   )
