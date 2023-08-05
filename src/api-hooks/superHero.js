@@ -47,14 +47,32 @@ export const addSuperHeroData = () => {
     const query = useQueryClient()
     return useMutation(addSuperHero, {
         onSuccess: (data) => {
-            // this way we gonna get 1 additional fetching request
+            //1 this way we gonna get 1 additional fetching request
             // query.invalidateQueries('super-heroes')
 
-            // but with setQueries no fetching required
-            // and new data will add to dom in moment
+            //2 but with setQueries no fetching required
+            //2 and new data will add to dom in moment
+            // query.setQueryData('super-heroes', (oldQuery) =>
+            //     ({ ...oldQuery, data: [...oldQuery.data, data.data] })
+            // )
+
+        },
+        //3 optimistic fetching
+        onMutate: async (newHero) => {
+            await query.cancelQueries('super-heroes')
+            const previousData = query.getQueryData('super-heroes')
             query.setQueryData('super-heroes', (oldQuery) =>
-                ({ ...oldQuery, data: [...oldQuery.data, data.data] })
+            ({
+                ...oldQuery, data: [...oldQuery.data, {
+                    ...newHero
+                }]
+            })
             )
-        }
+            return previousData
+        },
+        onError: () => { },
+        onSettled: () => {
+            console.log('slm')
+        },
     })
 }
